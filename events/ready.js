@@ -9,24 +9,6 @@ module.exports = {
     async execute(client) {
         console.log(`로그인 => ${client.user.tag}`);
 
-        for (const [file, data] of Object.entries(defaultData)) {
-            const filePath = path.join(dataDir, file);
-
-            if (!fs.existsSync(filePath)) {
-                fs.writeFileSync(
-                    filePath,
-                    JSON.stringify(data, null, 4),
-                    'utf8'
-                );
-
-                console.log(`${file} 생성`);
-            }
-        }
-
-        await loadCommands(client);
-
-        const commandData = [];
-
 const commandsPath = path.join(__dirname, '../commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
