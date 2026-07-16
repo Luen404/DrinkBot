@@ -9,6 +9,8 @@ module.exports = {
     async execute(client) {
         console.log(`로그인 => ${client.user.tag}`);
 
+        const commandData = [];
+
 const commandsPath = path.join(__dirname, '../commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
